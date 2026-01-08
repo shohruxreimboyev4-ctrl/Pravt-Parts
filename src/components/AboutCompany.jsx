@@ -5,7 +5,6 @@ export default function AboutCompany() {
   return (
     <section className="mx-auto px-4 py-16 max-w-[1200px]">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-        {/* LEFT IMAGE */}
         <div className="relative rounded-lg overflow-hidden shadow-lg">
           <img
             src={aboutImg}
@@ -13,7 +12,6 @@ export default function AboutCompany() {
             className="w-full h-64 sm:h-72 md:h-[360px] object-cover"
           />
 
-          {/* Logo overlay - now transparent and bigger */}
           <div className="absolute top-0 left-0">
             <img
               src={logo}
@@ -23,7 +21,6 @@ export default function AboutCompany() {
           </div>
         </div>
 
-        {/* RIGHT CONTENT */}
         <div>
           <h2 className="text-2xl sm:text-3xl font-bold mb-4">О компании</h2>
 
@@ -49,7 +46,6 @@ export default function AboutCompany() {
         </div>
       </div>
 
-      {/* RED LINE BELOW */}
       <div className="mt-8 flex justify-center md:justify-start">
         <div className="w-24 h-1 bg-[#c83c44] rounded-full" />
       </div>
