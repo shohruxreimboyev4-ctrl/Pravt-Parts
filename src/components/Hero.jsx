@@ -18,7 +18,7 @@ export default function Hero() {
           backgroundSize: "contain",
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-transparent to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r box via-transparent to-transparent pointer-events-none" />
 
         <div className="relative z-10 max-w-xl">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">

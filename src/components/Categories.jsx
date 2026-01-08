@@ -1,5 +1,6 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
+
 import engineImg from "../assets/img/engine.png";
 import fuelSvg from "../assets/svg/fuel.svg";
 import coolingSvg from "../assets/svg/cooling.svg";
@@ -13,6 +14,7 @@ import brakesSvg from "../assets/svg/brakes.svg";
 import steeringSvg from "../assets/svg/steering.svg";
 import electricSvg from "../assets/svg/electric.svg";
 import heatingSvg from "../assets/svg/heating.svg";
+import KlasterPng from "../assets/img/klaster.png";
 
 const Categories = () => {
   const categories = [
@@ -79,14 +81,14 @@ const Categories = () => {
       title: "Колеса и ступицы",
       color: "border-red-700",
       bgColor: "bg-gray-50",
-      image: wheelsSvg,
+      image: heatingSvg,
     },
     {
       id: 10,
       title: "Тормоза",
       color: "border-blue-400",
       bgColor: "bg-gray-50",
-      image: brakesSvg,
+      image: electricSvg,
     },
     {
       id: 11,
@@ -100,43 +102,42 @@ const Categories = () => {
       title: "Электро-\nоборудование",
       color: "border-blue-500",
       bgColor: "bg-gray-50",
-      image: electricSvg,
+      image: brakesSvg,
     },
     {
       id: 13,
       title: "Отопление\nи вентиляция",
       color: "border-blue-700",
       bgColor: "bg-gray-50",
-      image: heatingSvg,
+      image: wheelsSvg,
       isBottom: true,
     },
   ];
 
+  const topCategories = categories.filter((c) => !c.isBottom);
+  const bottomCategory = categories.find((c) => c.isBottom);
+
   return (
     <div className="w-full bg-white py-8 sm:py-12 px-4">
-      {/* Container max 1200px */}
       <div className="max-w-[1200px] mx-auto">
-        {/* Header */}
         <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-8 sm:mb-12">
           Продажа запасных частей для авто
         </h1>
 
-        {/* Main Grid - 4 columns on large desktop, 2 columns on small screens */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6">
-          {categories.slice(0, 12).map((category) => (
+          {topCategories.map((category) => (
             <div
               key={category.id}
-              className={`bg-white rounded-lg overflow-hidden border-l-[6px] ${category.color} group cursor-pointer hover:shadow-lg transition-shadow duration-300`}
+              className={`bg-white rounded-lg overflow-hidden border-l-[6px] ${category.color} cursor-pointer hover:shadow-lg transition-shadow`}
             >
               <div
-                className={`${category.bgColor} p-4 sm:p-6 h-[220px] sm:h-[260px] flex flex-col justify-between relative`}
+                className={`${category.bgColor} p-4 sm:p-6 h-[220px] sm:h-[260px] relative`}
               >
                 <div className="z-10">
-                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 whitespace-pre-line leading-tight">
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 whitespace-pre-line">
                     {category.title}
                   </h3>
 
-                  {/* Items list - only for first category */}
                   {category.items && (
                     <ul className="space-y-1 mb-3">
                       {category.items.map((item, idx) => (
@@ -150,74 +151,59 @@ const Categories = () => {
                     </ul>
                   )}
 
-                  {/* Link - only for first category */}
                   {category.showLink && (
-                    <button className="flex items-center text-red-600 font-semibold hover:text-red-700 transition-colors text-sm sm:text-base mt-2">
+                    <button className="flex items-center text-red-600 font-semibold text-sm">
                       Перейти
-                      <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
+                      <ArrowRight className="ml-2 w-4 h-4" />
                     </button>
                   )}
                 </div>
 
-                {/* Image placeholder - positioned absolute */}
-                <div className="absolute right-2 bottom-2 sm:right-4 sm:bottom-4 opacity-20 group-hover:opacity-30 transition-opacity">
-                  {category.image ? (
-                    <img
-                      src={category.image}
-                      alt={category.title}
-                      className="w-24 h-24 sm:w-32 sm:h-32 object-contain filter grayscale opacity-30 group-hover:opacity-70 transition-all"
-                    />
-                  ) : (
-                    <div className="w-24 h-24 sm:w-32 sm:h-32 bg-gray-200 rounded flex items-center justify-center">
-                      <span className="text-[10px] sm:text-xs text-gray-400">IMG</span>
-                    </div>
-                  )}
+                <div className="absolute right-2 bottom-2 sm:right-4 sm:bottom-4 opacity-100">
+                  <img
+                    src={category.image}
+                    alt={category.title}
+                    className="w-24 h-24 sm:w-32 sm:h-32 object-contain"
+                  />
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Bottom Section - Heating and Catalog */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-          {/* Heating & Ventilation - Left */}
-          <div className="bg-white rounded-lg overflow-hidden border-l-[6px] border-blue-700 cursor-pointer hover:shadow-lg transition-shadow duration-300">
-            <div className="bg-gray-50 p-4 sm:p-6 h-[200px] sm:h-[240px] flex flex-col justify-between relative">
-              <div className="z-10">
-                <h3 className="text-lg sm:text-xl font-bold text-gray-900 whitespace-pre-line leading-tight">
-                  Отопление
-                  <br />и вентиляция
-                </h3>
-              </div>
+        <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-4 sm:gap-6">
+          <div
+            className={`bg-white rounded-lg overflow-hidden border-l-[6px] ${bottomCategory.color}`}
+          >
+            <div className="bg-gray-50 p-4 sm:p-5 h-[160px] sm:h-[180px] relative flex flex-col justify-between">
+              <h3 className="text-base sm:text-lg font-bold text-gray-900 whitespace-pre-line leading-tight">
+                {bottomCategory.title}
+              </h3>
 
-              <div className="absolute right-2 bottom-2 sm:right-4 sm:bottom-4 opacity-20">
-                <div className="w-24 h-24 sm:w-32 sm:h-32 bg-gray-200 rounded flex items-center justify-center">
-                  <span className="text-[10px] sm:text-xs text-gray-400">
-                    IMG
-                  </span>
-                </div>
-              </div>
+              <img
+                src={bottomCategory.image}
+                alt={bottomCategory.title}
+                className="w-20 sm:w-24 self-end object-contain"
+              />
             </div>
           </div>
 
-          {/* Catalog Banner - Right */}
-          <div className="bg-gradient-to-br from-red-500 to-red-600 rounded-lg shadow-lg p-6 sm:p-8 text-white relative overflow-hidden h-[200px] sm:h-[240px] flex flex-col justify-between cursor-pointer hover:shadow-xl transition-shadow duration-300">
+          <div className="relative overflow-hidden rounded-lg bg-red-600 text-white p-5 sm:p-8 h-[160px] sm:h-[180px] flex flex-col justify-between">
+            <img
+              src={KlasterPng}
+              alt=""
+              className="absolute right-0 top-0 h-full opacity-20 pointer-events-none"
+            />
+
             <div className="relative z-10">
-              <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 leading-tight">
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-3">
                 Каталог запасных частей
               </h2>
-              <button className="flex items-center font-semibold hover:underline text-sm sm:text-base">
-                Перейти
-                <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
-              </button>
-            </div>
 
-            {/* Decorative circles */}
-            <div className="absolute -right-8 -bottom-8 sm:-right-12 sm:-bottom-12 opacity-10">
-              <div className="flex gap-2">
-                <div className="w-20 h-20 sm:w-32 sm:h-32 rounded-full border-4 sm:border-8 border-white"></div>
-                <div className="w-20 h-20 sm:w-32 sm:h-32 rounded-full border-4 sm:border-8 border-white"></div>
-              </div>
+              <button className="flex items-center gap-2 font-semibold text-sm sm:text-base hover:underline">
+                Перейти
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+              </button>
             </div>
           </div>
         </div>
