@@ -1,5 +1,5 @@
 import React from "react";
-
+// images
 import visa from "../assets/svg/visa.svg";
 import mastercard from "../assets/svg/mastercard.svg";
 import tirsan from "../assets/svg/tirsan.svg";
