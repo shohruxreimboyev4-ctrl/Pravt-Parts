@@ -1,4 +1,4 @@
-import aboutImg from "../assets/img/about.png";
+import aboutImg from "../assets/img/About.png";
 import logo from "../assets/svg/logo.svg";
 
 export default function AboutCompany() {
