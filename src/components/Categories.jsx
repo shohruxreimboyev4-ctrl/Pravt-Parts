@@ -14,7 +14,6 @@ import brakesSvg from "../assets/svg/brakes.svg";
 import steeringSvg from "../assets/svg/steering.svg";
 import electricSvg from "../assets/svg/electric.svg";
 import heatingSvg from "../assets/svg/heating.svg";
-import KlasPng from "../assets/img/klas.png";
 
 const Categories = () => {
   const categories = [
@@ -189,11 +188,7 @@ const Categories = () => {
           </div>
 
           <div className="relative overflow-hidden rounded-lg bg-red-600 text-white p-5 sm:p-8 h-[160px] sm:h-[180px] flex flex-col justify-between">
-            <img
-              src={KlasPng}
-              alt=""
-              className="absolute right-0 top-0 h-full opacity-20 pointer-events-none"
-            />
+         
 
             <div className="relative z-10">
               <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-3">
