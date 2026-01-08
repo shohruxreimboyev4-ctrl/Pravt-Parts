@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowRight } from "lucide-react";
+import { FiArrowRight } from "react-icons/fi";
 
 import engineImg from "../assets/img/engine.png";
 import fuelSvg from "../assets/svg/fuel.svg";
@@ -153,7 +153,7 @@ const Categories = () => {
                   {category.showLink && (
                     <button className="flex items-center text-red-600 font-semibold text-sm">
                       Перейти
-                      <ArrowRight className="ml-2 w-4 h-4" />
+                      <FiArrowRight className="ml-2 w-4 h-4" />
                     </button>
                   )}
                 </div>
@@ -197,7 +197,7 @@ const Categories = () => {
 
               <button className="flex items-center gap-2 font-semibold text-sm sm:text-base hover:underline">
                 Перейти
-                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                <FiArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
               </button>
             </div>
           </div>

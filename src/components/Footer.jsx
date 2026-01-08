@@ -5,7 +5,6 @@ import { FaVk } from "react-icons/fa";
 import logo from "../assets/svg/logo.svg";
 import visa from "../assets/svg/visa.svg";
 import mastercard from "../assets/svg/mastercard.svg";
-import { Clock, MapPin, Phone } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -100,7 +99,7 @@ export default function Footer() {
             <Contact
               icon={
                 <a href="tel:+78314185857">
-                  <Phone className="w-5 h-5 mt-1 text-gray-600" />
+                  <FiPhone className="w-5 h-5 mt-1 text-gray-600" />
                 </a>
               }
               text={
@@ -110,7 +109,7 @@ export default function Footer() {
               }
             />
             <Contact
-              icon={<Clock className="w-5 h-5 mt-1 text-gray-600" />}
+              icon={<FiClock className="w-5 h-5 mt-1 text-gray-600" />}
               text={
                 <>
                   8:30 – 16:30 <br />
@@ -119,7 +118,7 @@ export default function Footer() {
               }
             />
             <Contact
-              icon={<MapPin className="w-5 h-5 mt-1 text-gray-600" />}
+              icon={<FiMapPin className="w-5 h-5 mt-1 text-gray-600" />}
               text={
                 <>
                   г. Нижний Новгород <br />
